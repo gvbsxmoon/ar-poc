@@ -1,6 +1,6 @@
 'use client';
 
-import { redirect } from 'next/navigation';
+import axios from 'axios';
 import { useState } from 'react';
 import QRCode from 'react-qr-code';
 
@@ -8,15 +8,16 @@ function Info() {
 	const [message, setMessage] = useState('');
 
 	const openAR = async () => {
-		const res = await fetch(`${window.location.href}api/checkMobile`);
-		const { message, isMobile } = await res.json();
+		const res = await axios.get(`${window.location.href}api/checkMobile`);
+		const { message, isMobile } = await res.data;
 
 		if (!isMobile) {
 			setMessage(message);
 		} else {
-			redirect(`${window.location.href}api/redirect`);
+			window.location.replace(`${window.location.href}api/redirect`);
 		}
 	};
+
 	return (
 		<div className='info-container'>
 			<h2>Nike AIR</h2>
