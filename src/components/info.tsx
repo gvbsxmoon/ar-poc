@@ -7,12 +7,12 @@ function Info() {
 	const [message, setMessage] = useState('');
 
 	const openAR = async () => {
-		const res = await fetch(`${window.location.href}api`);
-		const { message, isMobile } = await res.json();
+		await fetch(`${window.location.href}api`);
+		/* const { message, isMobile } = await res.json();
 
 		if (!isMobile) {
 			setMessage(message);
-		}
+		} */
 	};
 	return (
 		<div className='info-container'>
@@ -23,7 +23,7 @@ function Info() {
 
 			{message && (
 				<div className='desktop-ar-container'>
-					<QRCode value={`${window.location.href}api`} size={60}/>
+					<QRCode value={`${window.location.href}api`} size={60} />
 					<span>{message}</span>
 				</div>
 			)}
