@@ -1,3 +1,3 @@
-export default async function GET() {
+export async function GET(req: Request) {
 	return Response.json({ message: 'ciao' });
 }
