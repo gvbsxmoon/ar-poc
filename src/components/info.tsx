@@ -7,7 +7,7 @@ function Info() {
 	const [message, setMessage] = useState('');
 
 	const openAR = async () => {
-		const res = await fetch('/api');
+		const res = await fetch(`${window.location.href}api`);
 		const { message, isMobile } = await res.json();
 
 		if (!isMobile) {
