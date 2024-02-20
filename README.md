@@ -7,10 +7,10 @@ L'intento di questo progetto è quello di fornire una POC navigabile che sfrutti
 Il progetto è stato creato con NextJS e le cartelle sono così strutturate:
 
 - *src*:
-  - *app*: app contiene il layout della pagina principale e dello stile fondamentale per la visualizzazione della pagina
+  - *app*: contiene il layout della pagina principale e lo stile fondamentale per la visualizzazione della pagina
     - *api*: sfruttando i [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) sono stati creati due endpoints:
-      - ```/api/checkMobile``` verifica che il dispositivo sia di tipo mobile come indica il nome e ritorna un valore booleano ed un messaggio.
-      -  ```/api/redirect``` si occupa della redirect verso gli assets 3D da caricare in modalità realtà aumentata. Per quanto riguarda il mondo Apple basta indicare l'url che fa da host al modello 3D *IN FORMATO . ```.usdz```*, per Android invece basta sostituire il link al modello con quello contenente il modello da voler visualizzare, questa volta *IN FORMATO ```.gltf``` o ```.glb```*.
+      - ```/api/checkMobile``` verifica che il dispositivo sia di tipo mobile e ritorna un valore booleano ed un messaggio.
+      -  ```/api/redirect``` si occupa della redirect verso gli assets 3D da caricare in modalità realtà aumentata. Per quanto riguarda Apple basta indicare l'url che fa da host al modello 3D *IN FORMATO . ```.usdz```*, per Android invece basta sostituire il link al modello con quello contenente il modello da voler visualizzare, questa volta *IN FORMATO ```.gltf``` o ```.glb```*.
   - *components*: questa cartella comprende i file ```scene.tsx``` e ```shoe.tsx``` che integrano e sfruttano la libreria *three.js* la creazione della scena e dell'ambiente in cui visualizzare il modello 3D. Il file ```ìnfo.tsx``` contiene la card che viene visualizzata al centro della pagina.
 
 ## VISUALIZZAZIONE
