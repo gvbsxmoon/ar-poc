@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## INTRODUZIONE
 
-## Getting Started
+L'intento di questo progetto è quello di fornire una POC navigabile che sfrutti le funzionalità di diverse librerie di 3D per implementare la realtà aumentata e la visualizzazione del modello.
 
-First, run the development server:
+## DESCRIZIONE
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Il progetto è stato creato con NextJS e le cartelle sono così strutturate:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- *src*:
+  - *app*: app contiene il layout della pagina principale e dello stile fondamentale per la visualizzazione della pagina
+    - *api*: sfruttando i [https://nextjs.org/docs/app/building-your-application/routing/route-handlers](Route Handlers) sono stati creati due endpoints:
+      - ```/api/checkMobile``` verifica che il dispositivo sia di tipo mobile come indica il nome e ritorna un valore booleano ed un messaggio.
+      -  ```/api/redirect``` si occupa della redirect verso gli assets 3D da caricare in modalità realtà aumentata. Per quanto riguarda il mondo Apple basta indicare l'url che fa da host al modello 3D *IN FORMATO . ```.usdz```*, per Android invece basta sostituire il link al modello con quello contenente il modello da voler visualizzare, questa volta *IN FORMATO ```.gltf``` o ```.glb```*.
+  -*components*: questa cartella comprende i file ```scene.tsx``` e ```shoe.tsx``` che integrano e sfruttano la libreria *three.js* la creazione della scena e dell'ambiente in cui visualizzare il modello 3D. Il file ``ìnfo.tsx``` contiene la card che viene visualizzata al centro della pagina.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## VISUALIZZAZIONE
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Per il corretto funzionamento della POC si consiglia fortemente di utilizzare Vercel. In modalità di sviluppo è presente solo la parte di three.js e quindi la visualizzazione del modello 3D. *L'AR e gli endpoint non avranno il funzionamento atteso*.
 
-## Learn More
+## CONSIGLI
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Si congilia inoltre, di utilizzare una versione di npm > 18, così com'è indicato nel file ```.npmrc```.
